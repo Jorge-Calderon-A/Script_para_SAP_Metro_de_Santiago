@@ -94,19 +94,18 @@ if seleccion == "1":
     seleccion_formato_mac=input("" \
     "1. Formato wWord" \
     "2. Formato PDF" \
-    "3. Formato Notas" \
-    "Selecciona una opción (1, 2 o 3):")
+    "Selecciona una opción (1 o 2):")
     if seleccion_formato_mac == "1":
         print("Generando informe en formato Word",informe_aviso_mac)
     elif seleccion_formato_mac == "2":
         print("Generando informe en formato PDF...")
-    elif seleccion_formato_mac == "3":
-        print("Generando informe en formato Notas...")
 
-    from docx import Document
-    document = Document()
+    from docx import Document                    # Importar el informe a Word, este paso es similar para PDF
+    document = Document()                            
     print("DEBUG:", informe_aviso_mac)
     document.add_paragraph(informe_aviso_mac)
-    document.save('informe_aviso_mac.docx')
+    document.save('informe_aviso_mac.docx')         #Aca termina el proceso de generación de Word
+
+    
 
    
