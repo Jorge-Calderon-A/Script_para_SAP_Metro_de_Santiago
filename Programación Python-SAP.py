@@ -37,6 +37,7 @@ if seleccion == "1":
     semana_mac= input("¿Cuál es la semana del aviso (Número de semana)?:")
     turno_mac= input("¿Cuál es el turno del aviso (Mañana/Tarde/Noche)?:")
     actividad_mac= input("¿Cuál es la actividad realizada?:")
+    observacion_mac= input("¿Se encuentran observaciones adicionales?:")
     print("¡Gracias! Has completado la información para el aviso en SAP.")
     print("Resumen del aviso:")
     print("Tipo de aviso: MAC")
@@ -61,7 +62,8 @@ if seleccion == "1":
     -----------------------------------
     Semana: {semana_mac}
     Fecha: {fecha_mac}
-    Hora: {hora_mac}
+    Hora de inicio: {hora_mac}
+    Hora de término: {hora_mac}
     Turno: {turno_mac}
     Actividad realizada: {actividad_mac}
     Estación de trabajo: {estacion_mac}
@@ -69,9 +71,10 @@ if seleccion == "1":
     Equipo involucrado: {equipo_mac}
     Problema encontrado: {problema_mac}
     Inspector: {inspectores_mac}
-    Supervisor a cargo: {supervisor_mac}    
-    Técnicos involucrados: {tecnicos_mac}
     Empresa contratista: {empresa_contratista_mac}
+    Supervisor a cargo: {supervisor_mac}
+    Tecnicos involucrados: {tecnicos_mac}    
+    Técnicos involucrados: {tecnicos_mac}
     Orden de mantenimiento asociada: {om_mac}
 
     ---------Resumen de la Inspección y Mantenimiento---------
@@ -81,7 +84,28 @@ if seleccion == "1":
     Los equipos inspeccionados son {equipo_mac}.
     Durante la inspección se detectó el siguiente problema: {problema_mac}.
     Se llevó a cabo un mantenimiento de tipo {mantenimiento_equpo_mac} y se aplicó la siguiente solución: {solucion_mac}.
-    La OM asociada a este mantenimiento correctivo es {om_mac}"""
+    La OM asociada a este mantenimiento correctivo es {om_mac}
 
+    -------------------Observaciones--------------------------
+    {observacion_mac}
+    ----------------------------------------------------------"""
 
-    print(informe_aviso_mac)
+    print("En que formato necesitas el informe?")
+    seleccion_formato_mac=input("" \
+    "1. Formato wWord" \
+    "2. Formato PDF" \
+    "Selecciona una opción (1 o 2):")
+    if seleccion_formato_mac == "1":
+        print("Generando informe en formato Word",informe_aviso_mac)
+    elif seleccion_formato_mac == "2":
+        print("Generando informe en formato PDF...")
+
+    from docx import Document                    # Importar el informe a Word, este paso es similar para PDF
+    document = Document()                            
+    print("DEBUG:", informe_aviso_mac)
+    document.add_paragraph(informe_aviso_mac)
+    document.save('informe_aviso_mac.docx')         #Aca termina el proceso de generación de Word
+
+    
+
+   
