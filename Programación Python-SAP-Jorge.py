@@ -3,8 +3,8 @@ print("¿Que información necesitas llevar a SAP?")
 print("1. Aviso (IW21)")
 print("2. Orden de mantenimiento (IW31)")
 seleccion= input("Selecciona una opción (1 o 2):")
-if seleccion == "1":
-    print("Perfecto, vamos a redactar el aviso para SAP.")
+if seleccion == "2":
+    print("Perfecto, vamos a redactar la orden para SAP.")
     print("Recuerda que debes describir el problema de manera clara y concisa, sin errores ortograficos.")
     mac_o_mpl=input("¿El aviso es para un MAC (1) o un MPL(2)?:")
     if mac_o_mpl < "1" or mac_o_mpl > "2":
@@ -38,6 +38,11 @@ if seleccion == "1":
     turno_mac= input("¿Cuál es el turno del aviso (Mañana/Tarde/Noche)?:")
     actividad_mac= input("¿Cuál es la actividad realizada?:")
     observacion_mac= input("¿Se encuentran observaciones adicionales?:")
+    sistema_mac= input("¿El sistema es entregado en  conformidad? (si/no);")
+    if sistema_mac.lower() == "si":
+        conformidad_mac= input("El sistema es entregado en coformidad.")
+    else:
+        conformidad_mac= input("El sistema no es entregado en conformidad.")
     print("¡Gracias! Has completado la información para el aviso en SAP.")
     print("Resumen del aviso:")
     print("Tipo de aviso: MAC")
@@ -54,9 +59,10 @@ if seleccion == "1":
     print("Orden de mantenimiento asociada:", om_mac)
     print("Fecha del aviso:", fecha_mac)
     print("Hora del aviso:", hora_mac)
+    print(conformidad_mac)
     print("¡Listo para ingresar el aviso en SAP!")
 
-    #******************Informe final de Aviso A2 MAC******************************
+    #******************Informe final de Aviso A3 MAC******************************
     informe_aviso_mac = f"""
     Informe del Aviso para SAP - MAC    
     -----------------------------------
@@ -90,21 +96,6 @@ if seleccion == "1":
     {observacion_mac}
     ----------------------------------------------------------"""
 
-    print("En que formato necesitas el informe?")
-    seleccion_formato_mac=input("" \
-    "1. Formato wWord" \
-    "2. Formato PDF" \
-    "Selecciona una opción (1 o 2):")
-    if seleccion_formato_mac == "1":
-        print("Generando informe en formato Word",informe_aviso_mac)
-    elif seleccion_formato_mac == "2":
-        print("Generando informe en formato PDF...")
-
-    from docx import Document                    # Importar el informe a Word, este paso es similar para PDF
-    document = Document()                            
-    print("DEBUG:", informe_aviso_mac)
-    document.add_paragraph(informe_aviso_mac)
-    document.save('informe_aviso_mac.docx')         #Aca termina el proceso de generación de Word
 
     
 
