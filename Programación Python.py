@@ -162,7 +162,6 @@ elif seleccion == "1":
     resumen_aviso= input ("Resume el aviso, esto aparecera como el resumen general del aviso en SAP:")
     print("¡Gracias! Has completado la información para el aviso en SAP.")
     print("Resumen del aviso:")
-    print("Tipo de aviso:", tipo_aviso)
     print("Estación de trabajo:", estacion_aviso)
     print("Resumen del aviso:", resumen_aviso)
     print("Equipo involucrado:", equipo_aviso)
@@ -179,6 +178,7 @@ elif seleccion == "1":
     {resumen_aviso}
     ----------------------------------------------------------
     """)
+    print(informe_aviso)
 
 else:
     print("Opción no valida. porfavor selecciona una opción valida.")
