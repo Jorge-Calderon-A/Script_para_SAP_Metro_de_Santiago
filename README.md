@@ -8,4 +8,8 @@ Por ello he creado un script en Python para optimizar el tiempo y desarrollar ma
 
 A continuación se presenta un video donde explico la estructura del prototipo del script: https://youtu.be/0GT6-NxFWiw
 
+Como se menciona anteriormente, el script no contiene información confidencial, debilidades para interpretar datos de la empresa, personas, objetos y lugares.
+
+A la fecha el script se encuentra finalizado, se puede encontrar en el documento .py adjuntado (Programación Python.py).
+
 
