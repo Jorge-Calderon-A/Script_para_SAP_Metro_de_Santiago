@@ -8,9 +8,8 @@ else:
     print("Hola, buenas noches")                                 #Saludo inicial del programa 
 print("Bienvenido, selecciona una opción")                #Pregunta inciial para saber que tipo de transacción se va a realizar
 print("1. Aviso (IW21)")                                         #Opción de aviso, transacción IW21 en SAP
-print("2. Orden de mantenimiento (IW31)")     
-print("3. Elementos de energía eléctrica")                   #Opción de orden, transacción IW31 en SAP PM
-seleccion= input("Selecciona una opción (1 o 2):")               #En este input se selcciona la transacción, el usuario puede selccionar 1 o 2
+print("2. Orden de mantenimiento (IW31)")                      #Opción de orden, transacción IW31 en SAP PM
+seleccion= input("Selecciona una opción (1, 2 o 3):")               #En este input se selcciona la transacción, el usuario puede selccionar 1 o 2
 if seleccion == "2":                                                                                              #************Este bloque es en caso de que el usuario selccione la opcion 2**********
     print("Perfecto, vamos a redactar la orden para SAP.")                   
     print("Recuerda que debes describir el problema de manera clara y concisa, sin errores ortograficos.")
@@ -71,10 +70,10 @@ if seleccion == "2":                                                            
         print("¡Listo para ingresar el aviso en SAP!")
         resumen_mac = input ("Resume la inspección, esto aparecera como el resumen general de la orden en SAP:")
 
-        #******************Informe final de Aviso A3 MAC******************************
+        #******************Informe final de Aviso A3 MAC******************************    
         from textwrap import dedent
-
-        informe_aviso_mac = dedent(f"""\
+                                                                        #Aviso MAC1
+        informe_aviso_mac1 = dedent(f"""\
         Informe del Aviso para SAP - MAC
         -----------------------------------
         Semana: {semana_mac}
@@ -101,7 +100,85 @@ if seleccion == "2":                                                            
         ----------------------------------------------------------
         """)
 
-        print(informe_aviso_mac)
+
+        informe_aviso_mac2 = dedent(f"""\
+        {mantenimiento_equipo_mac}
+        ***********************************************
+        Semana de mantenimiento: {semana_mac}
+        Fecha: {fecha_mac}
+        Hora de inicio: {hora_mac}
+        Hora de finalización: {hora_mac}
+        Turno: {turno_mac}
+        Actividad realizada: {actividad_mac}
+        Estación de trabajo: {estacion_mac}
+        Recinto: {recinto_mc}
+        Equipo involucrado: {equipo_mac}
+        Problema encontrado: {problema_mac}
+        Inspector: {inspectores_mac}
+        Empresa contratista: {empresa_contratista_mac}
+        Supervisor a cargo: {supervisor_mac}
+        Técnicos involucrados: {tecnicos_mac}
+        Orden de mantenimiento asociada: {om_mac}
+
+        ************Resumen de la inspección************
+        {resumen_mac}
+
+        ****************Observaciones*******************
+        {observacion_mac}
+        {conformidad_mac}
+        ***********************************************
+        """)
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        print("¿Cual informe desea generar?"\
+              "1"\
+              "2"\
+              "3"\
+              "4")
+
+        informe_mac_seleccion= input("Selecciona una opción (1, 2, 3 o 4):")
+        if informe_mac_seleccion != "1" and informe_mac_seleccion != "2" and informe_mac_seleccion != "3" and informe_mac_seleccion != "4":
+            print("Opción no valida. porfavor selecciona una opción valida.")
+        if informe_mac_seleccion == "1":        #Se imprime el informe 1
+            print(informe_aviso_mac1)           #Imprimir informe 1
+        
+        elif informe_mac_seleccion == "2":      #Se imprime el informe 2
+            print(informe_aviso_mac2)           #Imprimir informe 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     elif mac_o_mpl == "2":
         print("Seleccionaste MPL.") 
         estacion_mpl= input("¿Cuál es la estación de trabajo involucrada?:")
@@ -188,20 +265,6 @@ elif seleccion == "1":
     """)
     print(informe_aviso)
 
-elif seleccion == "3":
-    print("Perfecto. ¿Que quieres saber sobre los elementos de energía eléctrica?")
-
-    print("1. Reportes A2 mas comunes")
-    print("2. Tipos de discordancias eléctricas")
-    print("3. Elementos de energia eléctrica por recintos")
-    print("4. Procedimientos de seguridad para trabajos de energía eléctrica (segun normativa Metro)")
-    print("5. Procedimientos de mantenimientos")
-    print("6. Sistemas de talleres")
-
-
-else:
-    print("Opción no valida. porfavor selecciona una opción valida.")
-
-print("Pulsa cualquier letra para finalizar el programa.")
+print("Presiona cualquier tecla para finaizar")
 finalizar = input()
 
