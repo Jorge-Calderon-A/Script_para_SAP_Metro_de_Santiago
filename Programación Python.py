@@ -132,7 +132,7 @@ if seleccion == "2":                                                            
 
         print("¿Cual informe desea generar?"\
               "1"\
-              "2"\)
+              "2")
 
         informe_mac_seleccion= input("Selecciona una opción (1, 2, 3 o 4):")
         if informe_mac_seleccion != "1" and informe_mac_seleccion != "2":
